@@ -1,15 +1,14 @@
-# 07 — When Should a Business Process Become an AI Employee?
-# 07 — 业务流程何时该变成 AI 员工？
+# 一个业务流程何时该变成 AI 员工
 
-**Thesis:** Not every process should. The right candidates share three traits:
-high volume, clear accountability, and a meaning that can be made explicit.
-**论点：** 不是每个流程都该。合格的候选共有三个特征：高体量、问责清晰、含义可被显式化。
+*When Should a Business Process Become an AI Employee?*
 
-Outline · 大纲:
-- The three-trait test, with counter-examples (one-off, ambiguous-accountability,
-  meaning-that-lives-only-in-one-person's-head).
-  三特征测试，并附反例（一次性、问责模糊、含义只活在某人脑中）。
-- Value × feasibility as the decision frame.
-  以价值 × 可行性作为决策框架。
-- Why a "no" at discovery is a successful outcome, not a failure.
-  为什么在发现阶段说"不"，是成功的结果而非失败。
+不是每个流程都该 AI 化。判断标准有四条：
+
+1. **工作是否高频、重复、有明确输入输出？** 偶尔一次的事不值得。
+2. **失败成本是否可控？** 涉及人命、大额资金、合规红线的，先做助手，别做员工——除非红线规则已经显式写死、关键动作强制人批。
+3. **是否有可显式表达的语义？** 如果"好坏"只能靠老师傅的直觉、无法写成规则，先沉淀语义再谈。
+4. **是否需要可问责的产出？** 如果只是辅助阅读，助手足够；如果要产出会被签字、被采纳的结果，才需要员工 + Harness + 人在环。
+
+满足越多条，越该做 AI 员工。一条都不沾，就别硬上——那只会制造一个更会说话的摆设。
+
+反过来，当你决定做，也不是一口气做到位：可以从轻量（一次售前会谈就能出的画像）起步，到标准（立项后的结构化设计），再到完整（中标后的深度诊断）。同一套收敛链，按成熟度加深度，而不是另起炉灶。

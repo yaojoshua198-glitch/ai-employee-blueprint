@@ -1,46 +1,21 @@
-# 03 — Why Agent Quality Is a Harness Problem
-# 03 — 为什么 Agent 质量是一个 Harness 问题
+# 为什么 Agent 质量是 Harness 问题
 
-**Thesis:** A weak model in a strong harness beats a strong model in a weak
-harness. Quality comes from the *system around* the model, not the model alone.
-**论点：** 强 Harness 里的弱模型，胜过弱 Harness 里的强模型。质量来自模型*周围的系统*，而非模型本身。
+*Why Agent Quality Is a Harness Problem*
 
----
+当 Agent 出错，团队的第一反应是换模型、加 prompt、堆工具。但多数失败不在模型，而在约束框架（Harness）缺失。
 
-There is a tempting arms race in agent building: chase the biggest model,
-expect quality to follow. It rarely does, because an agent's output is decided
-less by its model than by everything *around* it.
-Agent 构建里有一场诱人的军备竞赛：追逐最大的模型，指望质量随之而来。这很少发生，因为一个 Agent 的输出，与其说由它的模型决定，不如说由它*周围的一切*决定。
+我习惯用一个标准衡量一个 AI 员工是否真的"能上岗"：不是"它回答正确"，而是**"企业敢把一个岗位交给它"**。要达到这个标准，光有聪明的模型不够，还要补齐六个层面——Harness、本体、运行时、记忆、评估、企业治理。多数项目卡在后几项：会判断但不会真正执行，更不会持续成长。
 
-The **harness** is that everything:
-**Harness** 就是那一切：
+Harness 回答五个问题：Agent 能看到什么（context）？能调用什么（tools）？必须遵守什么硬规则（rules）？安全边界在哪（guardrails）？人在哪个环节必须审批（human-in-the-loop）？
 
-- **Context** — what the agent is allowed to see. Give it the wrong window and
-  even a frontier model will hallucinate from absence.
-  **上下文**——Agent 被允许看到什么。给它错误的窗口，即便前沿模型也会因"信息缺失"而幻觉。
-- **Tools** — what it can call. A model that can't look up the standard can
-  only invent one.
-  **工具**——它能调用什么。一个查不到标准的模型，只能发明一个。
-- **Rules** — hard constraints it must obey ("every finding cites a clause").
-  **规则**——它必须遵守的硬性约束（"每条发现都引用条款"）。
-- **Guardrails** — boundaries it cannot cross (read-only on source systems).
-  **护栏**——它不能越过的边界（对源系统只读）。
-- **Human-in-the-loop** — the gate where a person approves before anything
-  ships.
-  **人在环**——任何东西交付前由人批准的关卡。
+举一个真实的 Harness 细节。一个做客户回访的 AI 员工，如果用"行业平均保养周期"判定谁该回访，会对慢节奏客户大量误报（骚扰），对快节奏客户又太晚（已被对手截走）。正确的做法是用**每一位客户自己的历史节奏做基线**——这才是一个群发工具绝对给不出来的"分类壁垒"。这类机制不是模型能自己长出来的，是 Harness 设计出来的。
 
-Each of these is a lever you control *without* changing the model. And they
-compound: good context reduces hallucination, rules turn output into claims,
-guardrails keep it safe, and the human gate catches what slips through.
-这些每一个都是你*无需更换模型*就能控制的杠杆。而且它们会复利：好的上下文减少幻觉，规则把输出变成断言，护栏保证安全，人工关卡兜住漏网之鱼。
+所以我倾向于把质量当成 Harness 问题：不是祈祷模型"表现好"，而是把它"设计得不会乱来"。具体抓手有五个：
 
-This reframes the build order. You do not start with "which model." You start
-with "what should this employee be allowed to see, do, and prove — and where
-does a human check it?" The model is a component you can swap; the harness is
-the product.
-这重构了构建顺序。你不是从"用哪个模型"开始，而是从"这名员工该被允许看什么、做什么、证明什么——以及人在哪里检查它？"开始。模型是可替换的部件；Harness 才是产品。
+- **决策本体（Decision Ontology）**：把"情境 → 诊断 → 选项 → 权衡 → 决策 → 动作 → 结果 → 学习"建模出来，而不只是"对象 → 规则 → 动作"。
+- **岗位工作循环（Operating Loop）**：让 AI 有"早晨巡检、上午处理异常、晚上复盘"的节奏，企业才会感觉"这个 AI 在上班"。
+- **经验本体（Experience Ontology）**：记忆不该只是执行日志，而要从日志里挖出模式、形成可审批的经验、反哺规则——这才是真正的成长。
+- **证据图（Evidence Graph）**：每个结论都能点开看到"依据哪条规则、哪个数据源、何时、谁批的"，这是企业信任的来源。
+- **KPI 引擎**：每天给 AI 员工打分（准确 / 业务影响 / 安全 / 效率），因为企业未来一定问"这个员工过去 30 天表现怎么样"。
 
-In practice this is why the cases here always show the harness as its own
-section, placed *before* evaluation. If the harness is right, evaluation is
-mostly about tuning. If the harness is wrong, no model upgrade saves you.
-也正因如此，这里的案例总把 Harness 作为独立一节，放在评估*之前*。Harness 对了，评估基本只是调参；Harness 错了，换多强的模型都救不回来。
+一个没有 Harness 的 Agent，能力越强越危险——它能在错误的上下文里自信地给出错误答案。质量不是模型评出来的，是约束框架逼出来的：先有证据才能断言，只读不写，关键动作必须人批。

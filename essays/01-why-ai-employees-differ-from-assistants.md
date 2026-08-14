@@ -1,46 +1,21 @@
-# 01 — Why AI Employees Are Different From AI Assistants
-# 01 — 为什么 AI 员工不同于 AI 助手
+# 为什么 AI 员工不同于 AI 助手
 
-**Thesis:** An assistant reduces the cost of a task you still own. An employee
-owns the task. The difference is *accountability*, not capability.
-**论点：** 助手降低的是你仍然拥有的任务的成本；员工则拥有这个任务。区别在*问责*，而不在能力。
+*Why AI Employees Are Different From AI Assistants*
 
----
+很多人把"AI 员工"当作"AI 助手"的另一种叫法，这是误解。差别不在能力强弱，而在权责模型——更本质地说，分水岭只有一个问题：
 
-When people hear "AI employee," they picture a chatbot that answers faster.
-That conflation is the single biggest reason enterprise AI deployments stall.
-当人们听到"AI 员工"，脑中浮现的往往是一个回答更快的聊天机器人。这种混淆是企业 AI 落地失败的最大单一原因。
+**企业敢不敢把一个岗位交给它？**
 
-An **assistant** sits beside you. You decide what to ask, you judge the answer,
-you stay responsible for the outcome. Copilot is an assistant: it drafts, you
-commit. The task remains yours; the AI only lowers the cost of doing it.
-**助手**坐在你身旁。你决定问什么、你判断答案、你仍为结果负责。Copilot 就是助手：它起草，你提交。任务仍是你的，AI 只是降低了执行成本。
+**AI 助手**：你问，它答；你给指令，它执行一步。它不拥有工作，不负责结果。它是一把更好的锤子。
 
-An **employee** is given a piece of work and is expected to return it done —
-with the judgment, the evidence, and the accountability attached. You do not
-review every keystroke; you review the *result*, and you hold the employee to
-a standard.
-**员工**被交付一段工作，并被期望把做好的成果交回来——带着判断、证据与问责。你不必审查每一次击键，你审查*结果*，并按一个标准来要求这名员工。
+**AI 员工**：它被赋予一个角色、一组职责和明确边界。它拥有的不是"一次回答"，而是一段**可问责的工作流**——产出需要被审批、被签字、被信任。
 
-This distinction changes everything about how you build:
-这一区别彻底改变了你构建方式：
+这个差别决定了架构。助手只需要一个好的 prompt 和上下文窗口；员工需要：
+- **语义层**（让它理解"什么是合格的 BOM"）
+- **Agent 架构**（让多个角色协同）
+- **Harness**（约束它能做什么、强制先有证据）
+- **人在环的审批关卡**
 
-- An assistant needs a good prompt. An employee needs a **role**,
-  **responsibilities**, and a definition of *done*.
-  助手需要一个好提示词；员工需要一个**角色**、**职责**和*完成*的定义。
-- An assistant can be vague. An employee must be **auditable** — every claim
-  traceable to a rule or a source.
-  助手可以含糊；员工必须**可审计**——每一条断言都可追溯到一条规则或一个来源。
-- An assistant fails silently. An employee fails **in front of a human gate**
-  before the work ships.
-  助手会静默失败；员工会在工作交付前，失败在**人工关卡**面前。
+更具体地说，一个能真正上岗的企业 AI 员工要具备五种能力：理解业务对象、理解业务规则、做判断、执行动作、持续成长。多数项目卡在后两项——会判断但不会真正执行，更不会从经验里成长。
 
-The danger is treating an employee like an assistant: giving it autonomy
-without accountability, and then being surprised when it "helps" by shipping
-something wrong. The whole point of this portfolio's method — role, semantics,
-harness, human-in-the-loop — is to convert capability into *accountable* work.
-危险在于把员工当助手对待：给了它自主权却没有问责，然后当它"好心"交付了错误东西时大吃一惊。本作品集方法的核心——角色、语义、Harness、人在环——正是为了把能力转化为*可问责*的工作。
-
-A strong model wrapped in a weak contract is still an assistant.
-A modest model wrapped in a strong contract can be an employee.
-裹在薄弱契约里的强模型，依旧只是助手。裹在强契约里的普通模型，也能成为员工。
+所以我判断一个项目该不该叫"AI 员工"，就看一句话：**它有没有被赋予一项可以被问责的工作？** 如果没有，它只是助手。

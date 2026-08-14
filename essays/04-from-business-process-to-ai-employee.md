@@ -1,15 +1,13 @@
-# 04 — From Business Process to AI Employee
-# 04 — 从业务流程到 AI 员工
+# 从业务流程到 AI 员工
 
-**Thesis:** A business process becomes an AI employee candidate the moment a
-human task can be described as *inputs → judgments → accountable output*.
-**论点：** 当一个人工任务可以被描述为*输入 → 判断 → 可问责的输出*，业务流程就成了 AI 员工候选。
+*From Business Process to AI Employee*
 
-Outline · 大纲:
-- The decomposition test: can you list the task's inputs, the judgments, and the
-  definition of done?
-  拆解测试：你能列出任务的输入、判断与完成定义吗？
-- Where rule-based logic beats a model, and where a model earns its place.
-  规则逻辑胜过模型之处，以及模型值得上场之处。
-- The handoff boundary: what stays human, what the employee owns.
-  交接边界：什么留在人这边，什么由员工拥有。
+把一段业务工作变成 AI 员工，不是从写代码开始，是从"进现场、拆工作、显式语义、设计约束、真实验证"这条有次序的链开始。
+
+我通常用一套现场方法启动。先用**数据探照**把业务闭环扫一遍，标出"数据在哪"——绿色是系统自动记录的、黄色是文档表格、红色是只在人脑里的、灰色是根本没有数据的。绿的多，AI 容易接；红和灰的多，得先想怎么采集，否则员工是空壳。
+
+再用**对话**把岗位拆开，顺序很关键：先聊业务闭环，再聊具体任务、输出物、工具、谁拍板、哪步做砸代价最大，**最后才聊数据**。先问数据，客户本能往"知识库问答"靠，做出来的就是 chatbot 而不是员工。
+
+拆清楚后，进入定义阶段：识别本体与红线规则（语义层）、定义角色与技能（Agent）、设计约束框架（Harness）、用真实任务加人工复核验证（评估）。根据场景成熟度，这套方法可以轻量（一次售前会谈就能出的画像）、标准（立项后的结构化设计）或完整（中标后的深度诊断）三档——同一套收敛链，只是深度不同，不另起炉灶。
+
+顺序很重要。很多项目死在跳过了语义和约束，直接冲去调模型。结果是能 demo、不能交付。从业务到 AI 员工，是一条有次序的链，不是一次灵感。

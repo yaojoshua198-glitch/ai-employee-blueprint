@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "name": "虚拟电厂 AI 员工系统",
+    "tagline": "把传统虚拟电厂系统重构为一组 AI 员工。",
+    "domain": "能源 / 虚拟电厂",
+    "status": "架构参考案例"
+  },
+  "business_problem": {
+    "description": "虚拟电厂（VPP）聚合分布式能源资源并辅助调度。传统系统产出看板与告警，但真正做决策——预测什么、分析什么、报价什么、调度什么——仍完全落在人工操作员身上。",
+    "why_existing_fails": "系统只“告知”而不“行动”。它把预测、分析、策略与调度当作一条未分化的管道，于是操作员每次都必须重新解读输出才能使用。工作没有被拆成可负责的角色。"
+  },
+  "reframing": {
+    "how": "把单体系统重构为四个协同的 AI 员工，各自负责决策链的一个阶段：预测员预测资源可用量，分析员解读态势，策略员形成调度方案，行动员准备调度指令。每个角色都有清晰的输入、输出与边界。",
+    "ai_employee": {
+      "role": "虚拟电厂运营小组（4 名 AI 员工）",
+      "responsibilities": [
+        "各自负责决策链的一个阶段",
+        "向下一角色交付干净、带类型的输出",
+        "让人工掌控最终调度"
+      ],
+      "tasks": [
+        "预测资源可用量及不确定性",
+        "分析当前运行态势",
+        "形成调度或报价策略",
+        "准备供人工批准的调度指令"
+      ]
+    }
+  },
+  "business_semantics": {
+    "overview": "语义层定义了电厂、市场与约束对每个角色究竟意味着什么，使交接成为带类型、无歧义的对象，而非自由文本笔记。",
+    "layers": [
+      { "name": "资源模型 Resource Model", "captures": "资源类型、容量、爬坡限制、可用量" },
+      { "name": "市场规则 Market Rules", "captures": "报价窗口、定价、结算约束" },
+      { "name": "调度约束 Dispatch Constraints", "captures": "物理限制与操作员批准的边界" }
+    ]
+  },
+  "agent_architecture": {
+    "overview": "四个角色构成一条带类型的管道。人工批准最终的调度指令；Agent 不会自行执行它。",
+    "agents": [
+      { "name": "预测员 Forecast", "role": "预测可用量与不确定性", "inputs": "资源状态", "outputs": "带置信度的预测" },
+      { "name": "分析员 Analysis", "role": "解读运行态势", "inputs": "预测 + 市场", "outputs": "态势研判" },
+      { "name": "策略员 Strategy", "role": "形成调度/报价方案", "inputs": "态势研判", "outputs": "调度方案" },
+      { "name": "行动员 Action", "role": "准备调度指令", "inputs": "调度方案", "outputs": "待批准调度指令" }
+    ],
+    "workflow": [
+      "预测员",
+      "分析员",
+      "策略员",
+      "行动员",
+      "人工批准",
+      "调度执行"
+    ]
+  },
+  "harness": {
+    "overview": "约束框架保护物理系统与市场主体：Agent 可以建议，但在没有人工明确批准前不得行动，且必须遵守硬性约束。",
+    "context": "资源遥测、市场数据、操作员批准的边界",
+    "tools": "读取遥测、读取市场数据、起草指令",
+    "rules": "每条指令都必须遵守物理与市场约束",
+    "guardrails": "不自主调度；未经人工批准不下指令",
+    "human_in_the_loop": "操作员在每条调度指令发出前批准"
+  },
+  "evaluation": {
+    "method": "架构参考案例。评估标准是四个角色是否拥有干净、带类型的交接，以及人工是否对调度保持清晰的控制。",
+    "metrics": [
+      { "name": "带类型交接覆盖率", "target": "100% 角色交接带类型" },
+      { "name": "人工控制保留度", "target": "无自主调度" }
+    ],
+    "human_review": "操作员审视架构并批准每次调度"
+  },
+  "demo": {
+    "what": "一份架构走查，展示四个角色、它们带类型的交接，以及人工批准关卡。",
+    "how_to_run": "python generate_casefile.py templates/virtual-power-plant-blueprint.json"
+  },
+  "implementation": {
+    "tech_stack": ["Python", "Typed schemas", "Orchestration (可选)", "只读数据连接器"],
+    "notes": "架构参考案例，非生产部署。它展示系统重构与 Agent 架构。"
+  }
+}

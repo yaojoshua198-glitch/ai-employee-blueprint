@@ -1,15 +1,16 @@
-# 06 — From Workshop to Forward-Deployed AI
-# 06 — 从工作坊到前线部署的 AI
+# 从工作坊到前线部署 AI
 
-**Thesis:** Discovery that stays in a slide deck dies there. Forward-deployed AI
-means taking the insight from the workshop into the field, where the work
-actually happens — and letting real tasks shape the design.
-**论点：** 停留在幻灯片里的工作坊发现，会死在幻灯片里。前线部署的 AI，意味着把洞察从工作坊带进现场——工作真正发生的地方——并让真实任务来塑造设计。
+*From Workshop to Forward-Deployed AI*
 
-Outline · 大纲:
-- Why offsite workshops produce beautiful, unused frameworks.
-  为什么场外工作坊产出漂亮却无人使用的框架。
-- The field discipline: observe the real task before designing the employee.
-  现场纪律：在设计员工之前，先观察真实任务。
-- Ship-on-day-one: a minimal runnable prototype beats a complete spec.
-  首日可交付：一个最小可运行原型，胜过一份完整规格书。
+我过去做数字化转型工作坊，核心是帮企业识别机会、拆解流程、对齐诉求。这套方法和今天的 AI 员工一脉相承——差别是"交付物"从 PPT 变成了可运行的系统，而"进现场"这件事从未变过。
+
+**前线部署（forward-deployed）** 的意思是：不是把模型关在实验室，而是带着它进真实业务现场，在真实任务上迭代。我习惯用一套现场纪律：
+
+- **草稿先行**：永远先抛可讨论的半成品，不让对方从零发明。
+- **对话式发现**：先闭嘴观察，用数据当对话引子，而不是一谈 AI 就开干。
+- **Echo-Delta 分工**：一个人负责挖需求（只问不写），另一个负责落定义（只写不问），切帽子不串台。
+- **ship-on-day-one**：先给最小可跑原型，让对方对着实物反应，而不是等全定义完才给看。
+
+工作坊发现机会，Blueprint 定义员工，Harness 保证安全，真实任务验证价值。我已经在供应链风险、汽修回访等真实项目里反复跑通这套链路——方法不是纸上的，是在现场磨出来的。
+
+这也是为什么我的作品集里既有方法（Blueprint），又有案例，还有思考（essays）。它们共同证明一件事：从业务现场到 AI 系统，是一条可以被重复、被验证的路径。

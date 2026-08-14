@@ -1,15 +1,11 @@
-# 05 — Ontology vs RAG: What Does an AI Employee Actually Need?
-# 05 — 本体 vs RAG：AI 员工到底需要什么？
+# 本体 vs RAG：AI 员工到底需要什么
 
-**Thesis:** RAG answers "what does the document say"; an ontology answers "what
-does this term mean *here*, and how is it constrained." An employee needs both,
-but confuses them at its peril.
-**论点：** RAG 回答"文档说了什么"；本体回答"这个术语*在这里*是什么意思、受什么约束"。员工两者都需要，但混淆二者则自食其果。
+*Ontology vs RAG: What Does an AI Employee Actually Need?*
 
-Outline · 大纲:
-- RAG retrieves context; it does not guarantee the model interprets it correctly.
-  RAG 检索上下文；它不保证模型正确解读。
-- Ontology fixes meaning and relationships so judgment is consistent.
-  本体固定含义与关系，使判断保持一致。
-- A practical split: RAG for evidence, ontology + rules for decision.
-  实务切分：RAG 用于证据，本体 + 规则用于决策。
+常有人问：有了 RAG 还需要本体（ontology）吗？答案是：取决于你要的是"检索"还是"判断"。
+
+RAG 让模型带着资料回答，擅长"哪份文档说了 X"。本体让模型理解结构化的含义与关系，擅长"X 违反了哪条规则、为什么"。前者解决"找得到"，后者解决"看得懂、判得对"。
+
+一个真实的 AI 员工项目里，这两者是这么配合的：先有一份**领域本体**做骨架（如"养护项目 × 车型 × 周期 × 工时 × 价格"的图谱），再长出一个**项目本体**（这家店自己的客户、到店记录、客户分层），两者共用一份领域骨架、各自保留专用部分；然后叠上**红线规则**和动作定义。RAG 则在运行时补给最新的资料。
+
+所以光有 RAG 不够。一个需要做判断、做审计、做可追责产出的 AI 员工，需要轻量本体承载业务语义、需要规则引擎强制约束、需要 RAG 补给实时资料——三者互补，不是替代。别用 RAG 的锤子去敲本体的钉子。
