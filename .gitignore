@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Generated output (keep templates, ignore regenerated local artifacts)
+*.casefile.local.md
+
+# OS
+.DS_Store
